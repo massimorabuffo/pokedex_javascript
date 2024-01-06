@@ -55,6 +55,12 @@ const createList = async () => {
                     pokeTypes.classList.add("waterType");
                 }else if(types.includes("normal")){
                     pokeTypes.classList.add("normalType");
+                }else if(types.includes("electric")){
+                    pokeTypes.classList.add("electricType");
+                }else if(types.includes("psychic")){
+                    pokeTypes.classList.add("psychicType");
+                }else if(types.includes("dragon")){
+                    pokeTypes.classList.add("dragonType");
                 }
             }catch(error){
                 console.error(error);

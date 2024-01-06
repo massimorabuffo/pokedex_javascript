@@ -27,26 +27,45 @@
     border: 2px solid rgb(128, 79, 0);
 }
 
+.pokeCard:hover{
+    cursor: pointer;
+}
+
 .pokeName{
     border-bottom: 1px solid rgb(128, 79, 0);
 }
 
 .grassType{
-    background-color: green;
-    color: black;
+    background-color: rgb(0, 123, 0);
+    color: #000;
 }
 
 .fireType{
-    background-color: red;
-    color: black;
+    background-color: rgb(255, 0, 0);
+    color: #000;
 }
 
 .waterType{
-    background-color: aqua;
-    color: black;
+    background-color: rgb(0, 255, 255);
+    color: #000;
 }
 
 .normalType{
-    background-color: burlywood;
-    color: black;
+    background-color: rgb(218, 182, 134);
+    color: #000;
+}
+
+.electricType{
+    background-color: rgb(255, 255, 0);
+    color: #000;
+}
+
+.psychicType{
+    background-color: rgb(126, 4, 126);
+    color: #000;
+}
+
+.dragonType{
+    background-color: rgb(1, 1, 77);
+    color: rgb(255, 255, 255);
 }
