@@ -1,0 +1,52 @@
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.darkModeBody{
+    background-color: black;
+    color: white;
+}
+
+.darkModeName{
+    background-color: rgb(18, 9, 3);
+}
+
+.darkModeImg{
+    background-color: rgb(25, 32, 40);
+}
+
+.pokeCard{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid rgb(128, 79, 0);
+}
+
+.pokeName{
+    border-bottom: 1px solid rgb(128, 79, 0);
+}
+
+.grassType{
+    background-color: green;
+    color: black;
+}
+
+.fireType{
+    background-color: red;
+    color: black;
+}
+
+.waterType{
+    background-color: aqua;
+    color: black;
+}
+
+.normalType{
+    background-color: burlywood;
+    color: black;
+}
