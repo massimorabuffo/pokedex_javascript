@@ -1,17 +1,24 @@
 let pokemon = [];
+const searchContainer = document.createElement("div");
+searchContainer.id = "searchContainer";
+document.body.appendChild(searchContainer);
 const searchBar = document.createElement("input");
 searchBar.type = "text";
 searchBar.id = "searchBar";
-document.body.appendChild(searchBar);
+searchBar.placeholder = 'Es."charizard"...';
+searchContainer.appendChild(searchBar);
 const searchButton = document.createElement("button");
 searchButton.innerText = "Search";
-document.body.appendChild(searchButton);
+searchButton.classList.add("buttons");
+searchContainer.appendChild(searchButton);
 const resetSearhButton = document.createElement("button");
 resetSearhButton.innerText = "Reset search";
-document.body.appendChild(resetSearhButton);
+resetSearhButton.classList.add("buttons");
+searchContainer.appendChild(resetSearhButton);
 const darkModeButton = document.createElement("button");
 darkModeButton.innerText = "Dark Mode";
-document.body.appendChild(darkModeButton);
+darkModeButton.classList.add("buttons");
+searchContainer.appendChild(darkModeButton);
 const pokeContainer = document.createElement("div");
 pokeContainer.id = "container";
 document.body.appendChild(pokeContainer);
@@ -40,7 +47,6 @@ const createList = async () => {
             try{
                 const request = await fetch(el.url);
                 const response = await request.json();
-                // console.log(response);
                 pokeImg.src = response.sprites.front_default;
                 let types = "";
                 response.types.map(el => {
@@ -61,6 +67,8 @@ const createList = async () => {
                     pokeTypes.classList.add("psychicType");
                 }else if(types.includes("dragon")){
                     pokeTypes.classList.add("dragonType");
+                }else if(types.includes("bug")){
+                    pokeTypes.classList.add("bugType");
                 }
             }catch(error){
                 console.error(error);
