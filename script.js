@@ -100,6 +100,7 @@ const toggleDarkMode = () => {
     document.querySelectorAll(".pokeName").forEach(el => {
         el.classList.toggle("darkModeName");
     })
+    darkModeButton.innerText === "Light mode" ? darkModeButton.innerText = "Dark mode" : darkModeButton.innerText = "Light mode";
 }
 
 darkModeButton.addEventListener("click", () => toggleDarkMode());
