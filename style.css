@@ -8,6 +8,12 @@ body{
     background-color: #fffccf;
 }
 
+#selectGenContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 #searchContainer{
     display: flex;
     flex-direction: row;

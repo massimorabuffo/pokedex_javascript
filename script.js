@@ -1,4 +1,32 @@
 let pokemon = [];
+const selectGenContainer = document.createElement("div");
+selectGenContainer.id = "selectGenContainer";
+document.body.appendChild(selectGenContainer);
+const selectText = document.createElement("div");
+selectText.textContent = "Select the pokemon generation you want to view:";
+selectGenContainer.appendChild(selectText);
+const selectGen = document.createElement("select");
+const option1 = document.createElement("option");
+option1.value = "first";
+option1.innerText = "First";
+selectGen.appendChild(option1);
+const option2 = document.createElement("option");
+option2.value = "second";
+option2.innerText = "Second";
+selectGen.appendChild(option2);
+const option3 = document.createElement("option");
+option3.value = "third";
+option3.innerText = "Third";
+selectGen.appendChild(option3);
+const option4 = document.createElement("option");
+option4.value = "fourth";
+option4.innerText = "Fourth";
+const optionAll = document.createElement("option");
+selectGen.appendChild(option4);
+optionAll.value = "all";
+optionAll.innerText = "All!";
+selectGen.appendChild(optionAll);
+selectGenContainer.appendChild(selectGen);
 const searchContainer = document.createElement("div");
 searchContainer.id = "searchContainer";
 document.body.appendChild(searchContainer);
@@ -23,9 +51,9 @@ const pokeContainer = document.createElement("div");
 pokeContainer.id = "container";
 document.body.appendChild(pokeContainer);
 
-const fetchData = async () => {
+const fetchData = async (genNum) => {
     try{
-        const request = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0");
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${genNum}&offset=0`);
         const response = await request.json();
         pokemon = response.results;
     }catch(error){
@@ -146,13 +174,33 @@ resetSearhButton.addEventListener("click", () => {
     searchBar.value = "";
 })
 
-const runApp = async () => {
+const runApp = async (gen) => {
     try{
-        await fetchData();
+        await fetchData(gen);
         await createList();
     }catch(error){
         console.error(error);
     }
 }
 
-runApp();
+runApp(151);
+
+selectGen.addEventListener("change", e => {
+    if(e.target.value === "first"){
+        pokeContainer.innerHTML = ""
+        runApp(151);
+    }else if(e.target.value === "second"){
+        pokeContainer.innerHTML = "";
+        runApp(251);
+    }else if(e.target.value === "third"){
+        pokeContainer.innerHTML = "";
+        runApp(386);
+    }else if(e.target.value === "fourth"){
+        pokeContainer.innerHTML = "";
+        runApp(493);
+    }else if(e.target.value === "all"){
+        pokeContainer.innerHTML = "";
+        runApp(898);
+    }
+    
+})
