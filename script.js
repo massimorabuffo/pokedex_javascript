@@ -51,9 +51,9 @@ const pokeContainer = document.createElement("div");
 pokeContainer.id = "container";
 document.body.appendChild(pokeContainer);
 
-const fetchData = async (genNum) => {
+const fetchData = async (genNum, offSet) => {
     try{
-        const request = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${genNum}&offset=0`);
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${genNum}&offset=${offSet}`);
         const response = await request.json();
         pokemon = response.results;
     }catch(error){
@@ -174,33 +174,32 @@ resetSearhButton.addEventListener("click", () => {
     searchBar.value = "";
 })
 
-const runApp = async (gen) => {
+const runApp = async (gen, offSet) => {
     try{
-        await fetchData(gen);
+        await fetchData(gen, offSet);
         await createList();
     }catch(error){
         console.error(error);
     }
 }
 
-runApp(151);
+runApp(151, 0);
 
 selectGen.addEventListener("change", e => {
     if(e.target.value === "first"){
         pokeContainer.innerHTML = ""
-        runApp(151);
+        runApp(151, 0);
     }else if(e.target.value === "second"){
         pokeContainer.innerHTML = "";
-        runApp(251);
+        runApp(100, 151);
     }else if(e.target.value === "third"){
         pokeContainer.innerHTML = "";
-        runApp(386);
+        runApp(135, 251);
     }else if(e.target.value === "fourth"){
         pokeContainer.innerHTML = "";
-        runApp(493);
+        runApp(107, 386);
     }else if(e.target.value === "all"){
         pokeContainer.innerHTML = "";
-        runApp(898);
+        runApp(898, 0);
     }
-    
 })
